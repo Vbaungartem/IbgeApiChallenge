@@ -1,0 +1,15 @@
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\bin\Debug\net8.0\IbgeApiChallenge.Infra.deps.json
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\bin\Debug\net8.0\IbgeApiChallenge.Infra.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\bin\Debug\net8.0\IbgeApiChallenge.Infra.pdb
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\bin\Debug\net8.0\IbgeApiChallenge.Core.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\bin\Debug\net8.0\IbgeApiChallenge.Core.pdb
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.csproj.AssemblyReference.cache
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.AssemblyInfoInputs.cache
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.AssemblyInfo.cs
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.csproj.CoreCompileInputs.cache
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.csproj.CopyComplete
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\refint\IbgeApiChallenge.Infra.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.pdb
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\ref\IbgeApiChallenge.Infra.dll

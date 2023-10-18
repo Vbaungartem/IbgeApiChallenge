@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "PlGK+QRtRLHu+R/FtEhHOP2llZZ2TprZYagtopugIOXb0onTCBnS+sSNhkV0e2GWBpmHKHfTvu3zxLwq5fteUA==",
+  "success": true,
+  "projectFilePath": "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vitor\\.nuget\\packages\\flunt\\2.0.5\\flunt.2.0.5.nupkg.sha512",
+    "C:\\Users\\vitor\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
+    "C:\\Users\\vitor\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\vitor\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

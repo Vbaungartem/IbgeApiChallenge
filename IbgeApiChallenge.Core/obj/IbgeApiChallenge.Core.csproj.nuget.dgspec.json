@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj": {}
+  },
+  "projects": {
+    "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
+        "projectName": "IbgeApiChallenge.Core",
+        "projectPath": "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
+        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
+        "outputPath": "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Componentes\\dotNet\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\Componentes\\dotNet\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "D:\\Componentes\\dotNet\\DevExpress 22.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/xIEeoTbEWHxeMogKahivbetnu38rDI5wY9gHuM2zr9j7RhkewL/api": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Flunt": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
