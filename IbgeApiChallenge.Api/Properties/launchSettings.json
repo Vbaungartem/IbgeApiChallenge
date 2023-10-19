@@ -4,8 +4,12 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:2738",
+      "applicationUrl": "http://localhost:4510",
       "sslPort": 44357
+    },
+    "iis": {
+      "applicationUrl": "http://localhost:8081",
+      "sslPort": 0
     }
   },
   "profiles": {
@@ -13,7 +17,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5145",
+      "applicationUrl": "http://localhost:8081",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -31,6 +35,16 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "WebApp IIS": {
+      "commandName": "IIS",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:8081",
+      "environmentVariables": {
+        "ASPNETCORE_DBTYPE": "mssql",
+        "ASPNETCORE_EF_LOCATION": "Local",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
