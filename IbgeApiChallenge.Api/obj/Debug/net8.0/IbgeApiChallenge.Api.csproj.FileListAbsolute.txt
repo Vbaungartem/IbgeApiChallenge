@@ -76,3 +76,4 @@ C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\re
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\IbgeApiChallenge.Api.pdb
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\IbgeApiChallenge.Api.genruntimeconfig.cache
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\ref\IbgeApiChallenge.Api.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\IbgeApiChallenge.Api.sourcelink.json

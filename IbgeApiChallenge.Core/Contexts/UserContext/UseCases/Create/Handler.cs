@@ -1,5 +1,5 @@
 ﻿using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
-using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Interfaces;
+using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Create.Interfaces;
 using IbgeApiChallenge.Core.Contexts.UserContext.ValueObjects;
 using MediatR;
 
@@ -7,11 +7,11 @@ namespace IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Create;
 
 public class Handler : IRequestHandler<Request, Response>
 {
-    private readonly IUserRepository _userRepository;
+    private readonly IUserCreateRepository _userCreateRepository;
 
-    public Handler(IUserRepository userRepository)
+    public Handler(IUserCreateRepository userCreateRepository)
     {
-        _userRepository = userRepository;
+        _userCreateRepository = userCreateRepository;
     }
 
     public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
@@ -34,7 +34,7 @@ public class Handler : IRequestHandler<Request, Response>
 
         Email email;
         Password password;
-        User user;
+        User? user;
         
         try
         {
@@ -57,7 +57,7 @@ public class Handler : IRequestHandler<Request, Response>
         #region User Verification ******************************
 
         
-        var exists = await _userRepository.AnyAsync(user.Email.Address, cancellationToken);
+        var exists = await _userCreateRepository.AnyAsync(user.Email.Address, cancellationToken);
         if (exists)
             return new Response("Já existe um usuário cadastrado com este endereço de e-mail.", status: 400);
 
@@ -66,7 +66,7 @@ public class Handler : IRequestHandler<Request, Response>
 
         try
         {
-            await _userRepository.AppendAndSaveAsync(user, cancellationToken);
+            await _userCreateRepository.AppendAndSaveAsync(user, cancellationToken);
         }
         catch
         {

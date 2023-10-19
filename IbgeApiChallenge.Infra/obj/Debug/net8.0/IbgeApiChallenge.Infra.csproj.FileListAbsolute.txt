@@ -13,3 +13,4 @@ C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\refint\IbgeApiChallenge.Infra.dll
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.pdb
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\ref\IbgeApiChallenge.Infra.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Infra\obj\Debug\net8.0\IbgeApiChallenge.Infra.sourcelink.json

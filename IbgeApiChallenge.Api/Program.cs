@@ -5,8 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddConfiguration();
 builder.AddDatabaseConfiguration();
 builder.AddMediator();
-builder.AddUserContext();
 builder.AddJwtAuthentication();
+
+builder.AddUserContext();
 
 var app = builder.Build();
 
@@ -17,8 +18,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapGet("/", () => "Hello World!");
-
 app.AddUserEndpoints();
-
 
 app.Run();
