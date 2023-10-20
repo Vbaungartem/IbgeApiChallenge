@@ -32,4 +32,13 @@ public static class UserContextExtension
         });
         #endregion
     }
+
+    public static void AddSwaggerEndpoints(this WebApplication app)
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Início v1");
+        });
+    }
 }
