@@ -22,7 +22,17 @@ public class User : Entity
         Email = email;
         Password = password;
     }
-    
+
+    public void UpdatePassword(string plainTextPassword)
+    {
+        var password = new Password(plainTextPassword);
+        Password = password;
+    }
+
+    public void UpdateEmail(Email email)
+    {
+        Email = email;
+    }
     
     public string Name { get; private set; } = string.Empty;
     public string GivenName { get; private set; } = string.Empty;

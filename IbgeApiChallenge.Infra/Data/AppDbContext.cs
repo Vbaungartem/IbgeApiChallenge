@@ -10,7 +10,7 @@ public class AppDbContext : DbContext
     {
     }
 
-    public DbSet<User> User { get; set; } = null!;
+    public DbSet<User?> User { get; set; } = null!;
     public DbSet<Role> Role { get; set; } = null!;
     public DbSet<State> State { get; set; } = null!;
     public DbSet<Locality> Locality { get; set; } = null!;
