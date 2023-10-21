@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Compile Remove="Contexts\UserContext\UseCases\Create.cs" />
+    <Compile Remove="Contexts\UserContext\UseCases\UpdatePassword.cs" />
   </ItemGroup>
 
   <ItemGroup>

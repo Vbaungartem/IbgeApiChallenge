@@ -76,3 +76,10 @@ C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\re
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\IbgeApiChallenge.Api.pdb
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\IbgeApiChallenge.Api.genruntimeconfig.cache
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\ref\IbgeApiChallenge.Api.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\IbgeApiChallenge.Api.sourcelink.json
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\bin\Debug\net8.0\web.config
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Api\obj\Debug\net8.0\IbgeApiChallenge.Api.MvcApplicationPartsAssemblyInfo.cs

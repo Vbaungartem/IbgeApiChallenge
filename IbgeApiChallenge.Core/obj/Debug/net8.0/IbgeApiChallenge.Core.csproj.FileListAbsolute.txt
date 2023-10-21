@@ -10,3 +10,4 @@ C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Core\obj\Debug\net8.0\I
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Core\obj\Debug\net8.0\refint\IbgeApiChallenge.Core.dll
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Core\obj\Debug\net8.0\IbgeApiChallenge.Core.pdb
 C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Core\obj\Debug\net8.0\ref\IbgeApiChallenge.Core.dll
+C:\BALTA\Desafio Balta\IbgeApiChallenge\IbgeApiChallenge.Core\obj\Debug\net8.0\IbgeApiChallenge.Core.sourcelink.json

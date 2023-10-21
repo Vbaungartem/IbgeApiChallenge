@@ -10,7 +10,7 @@ public class AppDbContext : DbContext
     {
     }
     
-    public DbSet<User> User { get; set; } = null!;
+    public DbSet<User?> User { get; set; } = null!;
     public DbSet<Role> Role { get; set; } = null!;
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
