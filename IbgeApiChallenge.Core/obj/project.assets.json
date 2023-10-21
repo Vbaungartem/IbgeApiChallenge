@@ -136,26 +136,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fabio\\.nuget\\packages\\": {},
-    "C:\\src\\Componentes\\dotNet\\DevExpress 22.2\\Components\\Offline Packages": {},
+    "C:\\Users\\Alessandro\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Alessandro\\Desktop\\Repositórios\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
       "projectName": "IbgeApiChallenge.Core",
-      "projectPath": "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
-      "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\obj\\",
+      "projectPath": "C:\\Users\\Alessandro\\Desktop\\Repositórios\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
+      "packagesPath": "C:\\Users\\Alessandro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alessandro\\Desktop\\Repositórios\\IbgeApiChallenge\\IbgeApiChallenge.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\src\\Componentes\\dotNet\\DevExpress 22.2\\Components\\Offline Packages",
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
+        "C:\\Users\\Alessandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -165,8 +162,8 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\src\\Componentes\\dotNet\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
-        "C:\\src\\Componentes\\dotNet\\DevExpress 22.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
+        "F:\\Componentes\\dotNet\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+        "F:\\Componentes\\dotNet\\DevExpress 22.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://nuget.devexpress.com/xIEeoTbEWHxeMogKahivbetnu38rDI5wY9gHuM2zr9j7RhkewL/api": {}
       },
@@ -211,7 +208,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.2.23502.2/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23455.8/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
