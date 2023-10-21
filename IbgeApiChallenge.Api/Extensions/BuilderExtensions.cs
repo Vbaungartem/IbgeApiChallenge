@@ -4,6 +4,7 @@ using IbgeApiChallenge.Infra.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace IbgeApiChallenge.Api.Extensions;
 
@@ -56,5 +57,14 @@ public static class BuilderExtensions
     {
         builder.Services.AddMediatR(x =>
             x.RegisterServicesFromAssembly(typeof(Configuration).Assembly));
+    }
+    
+    public static void AddSwagger(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "APISaudacao", Description = "Teste com Minimal APIs", Version = "v1" });
+        });
     }
 }
