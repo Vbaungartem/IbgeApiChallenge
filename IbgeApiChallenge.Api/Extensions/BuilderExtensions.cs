@@ -59,12 +59,12 @@ public static class BuilderExtensions
             x.RegisterServicesFromAssembly(typeof(Configuration).Assembly));
     }
     
-    public static void AddSwagger(this WebApplicationBuilder builder)
-    {
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(c =>
-        {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "APISaudacao", Description = "Teste com Minimal APIs", Version = "v1" });
-        });
-    }
+    // public static void AddSwagger(this WebApplicationBuilder builder)
+    // {
+    //     builder.Services.AddEndpointsApiExplorer();
+    //     builder.Services.AddSwaggerGen(c =>
+    //     {
+    //         c.SwaggerDoc("v1", new OpenApiInfo { Title = "APISaudacao", Description = "Teste com Minimal APIs", Version = "v1" });
+    //     });
+    // }
 }

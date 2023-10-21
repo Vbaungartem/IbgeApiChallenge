@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("IbgeApiChallenge.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01a54a21436a914924b820bf0318193edf1d9188")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+897a580d1458a63d3b0fdbeaa15202202da70958")]
 [assembly: System.Reflection.AssemblyProductAttribute("IbgeApiChallenge.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("IbgeApiChallenge.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

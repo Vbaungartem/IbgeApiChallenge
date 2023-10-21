@@ -1,8 +1,12 @@
-﻿using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Authenticate.Interfaces;
+﻿using System.Security.Claims;
+using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
+using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Authenticate.Interfaces;
 using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Create;
 using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Create.Interfaces;
+using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.UpdatePassword.Interfaces;
 using IbgeApiChallenge.Infra.Contexts.UserContext.UseCases.Authenticate.Implementations;
 using IbgeApiChallenge.Infra.Contexts.UserContext.UseCases.Create.Implementations;
+using IbgeApiChallenge.Infra.Contexts.UserContext.UseCases.UpdatePassword.Implementations;
 using MediatR;
 
 namespace IbgeApiChallenge.Api.Extensions;
@@ -20,6 +24,12 @@ public static class UserContextExtension
         #region Authenticate ********************************************
 
         builder.Services.AddTransient<IUserAuthenticateRepository, UserAuthenticateRepository>();
+
+        #endregion
+
+        #region UpdatePassword *******************************************
+
+        builder.Services.AddTransient<IUserUpdatePasswordRepository, UserUpdatePassword>();
 
         #endregion
 
@@ -62,14 +72,24 @@ public static class UserContextExtension
             return Results.Ok(result);
         });
         #endregion
-    }
 
-    public static void AddSwaggerEndpoints(this WebApplication app)
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI(c =>
+        #region Update Password ****************
+
+        
+        app.MapPut("api/v1/user/{id}/update-password", handler: async (string id, ClaimsPrincipal user,
+            IbgeApiChallenge.Core.Contexts.UserContext.UseCases.UpdatePassword.Request request,
+            IRequestHandler<IbgeApiChallenge.Core.Contexts.UserContext.UseCases.UpdatePassword.Request,
+                IbgeApiChallenge.Core.Contexts.UserContext.UseCases.UpdatePassword.Response> handler) =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Início v1");
-        });
+            request.SetId(user.Id());
+            request.SetRequestedId(id);
+            var result = await handler.Handle(request, new CancellationToken());
+
+            return result.IsSuccess
+                ? Results.Ok(result.Message)
+                : Results.Json(result, statusCode: result.Status);
+        }).RequireAuthorization();
+
+        #endregion
     }
 }

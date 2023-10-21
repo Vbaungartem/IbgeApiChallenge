@@ -22,5 +22,4 @@ app.MapGet("/", () => "Hello World!");
 app.AddSwaggerEndpoints();
 app.AddUserEndpoints();
 
-
 app.Run();
