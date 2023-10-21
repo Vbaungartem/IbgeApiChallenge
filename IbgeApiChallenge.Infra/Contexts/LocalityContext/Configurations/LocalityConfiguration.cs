@@ -1,8 +1,9 @@
+using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
 using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IbgeApiChallenge.Infra.Contexts.UserContext.Configurations;
+namespace IbgeApiChallenge.Infra.Contexts.LocalityContext.Configurations;
 
 public class LocalityConfiguration : IEntityTypeConfiguration<Locality>
 {

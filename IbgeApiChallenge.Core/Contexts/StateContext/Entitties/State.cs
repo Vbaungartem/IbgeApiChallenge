@@ -1,6 +1,7 @@
 using IbgeApiChallenge.Core.Contexts.SharedContext.Entities;
+using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
 
-namespace IbgeApiChallenge.Core.Contexts.UserContext.Entities;
+namespace IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
 
 public class State : Entity
 {

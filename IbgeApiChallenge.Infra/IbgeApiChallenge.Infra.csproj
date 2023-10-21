@@ -12,6 +12,11 @@
     <Folder Include="Contexts\UserContext\UseCases\Create\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Contexts\StateContext\UseCases\Create\Implementations.cs" />
+    <Compile Remove="Contexts\UserContext\UseCases\Create\Implementations\StateRepository.cs" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>

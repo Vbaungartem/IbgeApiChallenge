@@ -1,4 +1,7 @@
-﻿using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
+﻿using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
+using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
+using IbgeApiChallenge.Infra.Contexts.LocalityContext.Configurations;
+using IbgeApiChallenge.Infra.Contexts.StateContext.Configurations;
 using IbgeApiChallenge.Infra.Contexts.UserContext.Configurations;
 using Microsoft.EntityFrameworkCore;
 

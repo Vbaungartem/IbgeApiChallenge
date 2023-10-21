@@ -1,4 +1,5 @@
 using IbgeApiChallenge.Core.Contexts.SharedContext.Entities;
+using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
 
 namespace IbgeApiChallenge.Core.Contexts.UserContext.Entities;
 

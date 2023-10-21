@@ -1,3 +1,4 @@
+using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
 using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
 using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Interfaces;
 using IbgeApiChallenge.Infra.Data;
@@ -19,5 +20,4 @@ public class StateRepository : IStateRepository
         var retorno = await _context.State.ToListAsync();
         return retorno;
     }
-
 }

@@ -74,7 +74,6 @@ public static class UserContextExtension
         #endregion
 
         #region Update Password ****************
-
         
         app.MapPut("api/v1/user/{id}/update-password", handler: async (string id, ClaimsPrincipal user,
             IbgeApiChallenge.Core.Contexts.UserContext.UseCases.UpdatePassword.Request request,

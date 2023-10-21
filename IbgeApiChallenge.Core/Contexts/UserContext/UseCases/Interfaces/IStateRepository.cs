@@ -1,3 +1,4 @@
+using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
 using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
 
 namespace IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Interfaces;
