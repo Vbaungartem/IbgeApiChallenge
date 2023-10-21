@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj": {}
+    "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj": {}
   },
   "projects": {
-    "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj": {
+    "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
         "projectName": "IbgeApiChallenge.Core",
-        "projectPath": "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
-        "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
-        "outputPath": "C:\\BALTA\\Desafio Balta\\IbgeApiChallenge\\IbgeApiChallenge.Core\\obj\\",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\IbgeApiChallenge.Core.csproj",
+        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Documentos\\Codigos\\Projetos\\IbgeApiChallenge\\IbgeApiChallenge.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Componentes\\dotNet\\DevExpress 22.2\\Components\\Offline Packages",
+          "C:\\src\\Componentes\\dotNet\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -29,8 +29,8 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "D:\\Componentes\\dotNet\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
-          "D:\\Componentes\\dotNet\\DevExpress 22.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
+          "C:\\src\\Componentes\\dotNet\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
+          "C:\\src\\Componentes\\dotNet\\DevExpress 22.2\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://nuget.devexpress.com/xIEeoTbEWHxeMogKahivbetnu38rDI5wY9gHuM2zr9j7RhkewL/api": {}
         },
