@@ -10,7 +10,7 @@ public class Locality : Entity
     public Guid StateId { get; private set; } = Guid.Empty;
     public State State { get; private set; } = null!;
 
-    protected Locality(string ibgeCode)
+    protected Locality()
     {
     }
 

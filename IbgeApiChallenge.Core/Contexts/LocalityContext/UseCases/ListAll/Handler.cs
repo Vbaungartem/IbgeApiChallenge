@@ -19,7 +19,6 @@ public class Handler : IRequestHandler<Request, Response>
         try
         {
             localities = await _stateListAllRepository.ListAllAsync(cancellationToken);
-            
 
             if (localities is null || localities.Count() is 0)
                 return new Response("Não há nenhuma Localidade cadastrado na base de dados", status: 404);

@@ -18,35 +18,35 @@ public class Handler : IRequestHandler<Request, Response>
 
         #region Verify type
 
-        State state;
+        State? state;
         try
         {
 
-          switch(request.Type)
-          { 
-            case 0:
-                state = await _stateGetRepository.GetByIdAsync(request.Filter,cancellationToken);
-                if (state is null)
-                    return new Response("Não há nenhum Estado com id na base de dados", status: 404);
-            break;
-            case 1:
-                state = await _stateGetRepository.GetByAcronymAsync(request.Filter,cancellationToken);
-                if (state is null)
-                    return new Response("Não há nenhum Estado com essa sigla na base de dados", status: 404);
-            break;
-            case 2:
-                state = await _stateGetRepository.GetByIbgeCodeAsync(request.Filter,cancellationToken);
-                if (state is null)
-                    return new Response("Não há nenhum Estado com esse código IBGE na base de dados", status: 404);
-            break;
-            case 3:
-                state = await _stateGetRepository.GetByNameCodeAsync(request.Filter,cancellationToken);
-                if (state is null)
-                    return new Response("Não há nenhum Estado com esse nome na base de dados", status: 404);
-            break;
-            default:
-                return new Response("Tipo de solitação não suportada.", status: 501);
-          }
+            switch (request.Type)
+            {
+                case 0:
+                    state = await _stateGetRepository.GetByIdAsync(request.Filter, cancellationToken);
+                    if (state is null)
+                        return new Response("Não há nenhum Estado com id na base de dados", status: 404);
+                    break;
+                case 1:
+                    state = await _stateGetRepository.GetByAcronymAsync(request.Filter, cancellationToken);
+                    if (state is null)
+                        return new Response("Não há nenhum Estado com essa sigla na base de dados", status: 404);
+                    break;
+                case 2:
+                    state = await _stateGetRepository.GetByIbgeCodeAsync(request.Filter, cancellationToken);
+                    if (state is null)
+                        return new Response("Não há nenhum Estado com esse código IBGE na base de dados", status: 404);
+                    break;
+                case 3:
+                    state = await _stateGetRepository.GetByNameCodeAsync(request.Filter, cancellationToken);
+                    if (state is null)
+                        return new Response("Não há nenhum Estado com esse nome na base de dados", status: 404);
+                    break;
+                default:
+                    return new Response("Tipo de solitação não suportada.", status: 501);
+            }
         }
         catch (Exception e)
         {

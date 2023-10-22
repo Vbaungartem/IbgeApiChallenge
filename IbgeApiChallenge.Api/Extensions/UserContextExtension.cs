@@ -47,7 +47,7 @@ public static class UserContextExtension
             return result.IsSuccess
                 ? Results.Created($"api/v1/user/create/{result.ResponseData?.Id}", result)
                 : Results.Json(result, statusCode: result.Status);
-        });
+        }).WithTags("User");
         #endregion
 
         #region Authenticate ***************************
@@ -55,7 +55,7 @@ public static class UserContextExtension
         app.MapPost("api/v1/user/authenticate", handler: async (
             IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Authenticate.Request request,
             IRequestHandler<
-                IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Authenticate.Request, 
+                IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Authenticate.Request,
                 IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Authenticate.Response> handler) =>
         {
             var result = await handler.Handle(request, new CancellationToken());
@@ -70,11 +70,11 @@ public static class UserContextExtension
                 JwtExtension.Generate(result.ResponseData)
                 );
             return Results.Ok(result);
-        });
+        }).WithTags("User");
         #endregion
 
         #region Update Password ****************
-        
+
         app.MapPut("api/v1/user/{id}/update-password", handler: async (string id, ClaimsPrincipal user,
             IbgeApiChallenge.Core.Contexts.UserContext.UseCases.UpdatePassword.Request request,
             IRequestHandler<IbgeApiChallenge.Core.Contexts.UserContext.UseCases.UpdatePassword.Request,
@@ -87,7 +87,7 @@ public static class UserContextExtension
             return result.IsSuccess
                 ? Results.Ok(result.Message)
                 : Results.Json(result, statusCode: result.Status);
-        }).RequireAuthorization();
+        }).WithTags("User").RequireAuthorization();
 
         #endregion
     }
