@@ -16,7 +16,6 @@ public class StateCreateRepository : IStateCreateRepository
 
     public async Task<bool> AnyAsync(string requestIbgeCode, CancellationToken cancellationToken)
         => await _context.State.AnyAsync(state => state.IbgeCode == requestIbgeCode, cancellationToken);
-    
 
     public async Task AppendAndSaveAsync(State state, CancellationToken cancellationToken)
     {

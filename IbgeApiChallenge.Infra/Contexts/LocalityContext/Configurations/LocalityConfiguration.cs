@@ -1,5 +1,5 @@
+using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
 using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
-using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

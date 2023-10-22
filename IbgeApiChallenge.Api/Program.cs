@@ -7,6 +7,7 @@ builder.AddDatabaseConfiguration();
 builder.AddMediator();
 builder.AddUserContext();
 builder.AddStateContext();
+builder.AddLocalityContext();
 builder.AddSwagger();
 
 builder.AddJwtAuthentication();
@@ -24,5 +25,6 @@ app.MapGet("/", () => "Hello World!");
 app.AddSwaggerEndpoints();
 app.AddUserEndpoints();
 app.AddStateEndpoints();
+app.AddLocalityEndpoints();
 
 app.Run();
