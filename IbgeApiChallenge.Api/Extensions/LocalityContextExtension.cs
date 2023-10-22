@@ -116,13 +116,32 @@ public static class LocalityContextExtension
 
         #region ListAll *****************************************
 
-        app.MapGet("api/v1/locality/listAll", handler: async (ILocalityListAllRepository LocalityListAllRepository)
+        app.MapGet("api/v1/locality/listAll", handler: async (ILocalityListAllRepository localityListAllRepository)
             =>
         {
             var request = new Core.Contexts.LocalityContext.UseCases.ListAll.Request();
-            var handler = new Core.Contexts.LocalityContext.UseCases.ListAll.Handler(LocalityListAllRepository);
+            var handler = new Core.Contexts.LocalityContext.UseCases.ListAll.Handler(localityListAllRepository);
             var result = await handler.Handle(request, new CancellationToken());
-            //var result = await handler.Handle(request, new CancellationToken());
+   
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).WithTags("Locality").RequireAuthorization();
+
+       app.MapGet("api/v1/locality/{name}/listAll", handler: async (string name, ILocalityListAllRepository localityListAllRepository)
+            =>
+        {
+            var request = new Core.Contexts.LocalityContext.UseCases.ListAll.Request();
+            request.Name = name;
+
+            var handler = new Core.Contexts.LocalityContext.UseCases.ListAll.Handler(localityListAllRepository);
+            var result = await handler.Handle(request, new CancellationToken());
+            
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
 

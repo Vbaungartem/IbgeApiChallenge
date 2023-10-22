@@ -27,6 +27,7 @@ public static class StateContextExtension
         #region Get By Filter *****************************************
         builder.Services.AddTransient<IStateGetRepository, StateGetRepository>();
         #endregion
+
         #region ListAll ********************************************
 
         builder.Services.AddTransient<IStateListAllRepository, StateListAllRepository>();
@@ -130,7 +131,6 @@ public static class StateContextExtension
         }).WithTags("State").RequireAuthorization();
         #endregion
 
-
         #region ListAll *****************************************
 
         app.MapGet("api/v1/state/listAll", handler: async (IStateListAllRepository stateListAllRepository)
@@ -149,6 +149,26 @@ public static class StateContextExtension
             return Results.Json(result);
 
         }).WithTags("State").RequireAuthorization();
+
+        app.MapGet("api/v1/state/{name}/listAll", handler: async (string name, IStateListAllRepository stateListAllRepository)
+            =>
+        {
+            var request = new Core.Contexts.StateContext.UseCases.ListAll.Request();
+            request.Name = name;
+
+            var handler = new Handler(stateListAllRepository);
+            var result = await handler.Handle(request, new CancellationToken());
+            
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).WithTags("State").RequireAuthorization();
+
         #endregion
 
         #region Delete *****************************************

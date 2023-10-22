@@ -25,4 +25,17 @@ public class StateListAllRepository : IStateListAllRepository
                 state.IbgeCode))
             .ToListAsync(cancellationToken: cancellationToken);
     }
+
+    public async Task<List<StateVm>?> ListAllAsync(string name, CancellationToken cancellationToken)
+    {
+        return await _context.State
+            .AsNoTracking()
+            .Where(state => state.Name.ToLower().Contains(name.ToLower()))
+            .Select(state => new StateVm(
+                state.Id, 
+                state.Name,
+                state.Acronym,
+                state.IbgeCode))
+            .ToListAsync(cancellationToken: cancellationToken);
+    }
 }
