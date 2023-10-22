@@ -11,6 +11,10 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20231021185547_v2.cs" />
+    <Compile Remove="Migrations\20231021185547_v2.Designer.cs" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>

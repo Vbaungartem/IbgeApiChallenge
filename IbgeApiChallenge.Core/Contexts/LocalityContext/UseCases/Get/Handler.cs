@@ -1,5 +1,5 @@
-﻿using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
-using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get.Interfaces;
+﻿using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get.Interfaces;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.ViewModels;
 using MediatR;
 
 namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
@@ -18,23 +18,23 @@ public class Handler : IRequestHandler<Request, Response>
 
         #region Verify type
 
-        Locality? locality;
+        LocalityStateVm? locality;
         try
         {
 
             switch (request.Type)
             {
-                case 0:
+                case TypeEnum.Id:
                     locality = await _localityGetRepository.GetByIdAsync(request.Filter, cancellationToken);
                     if (locality is null)
                         return new Response("Não há nenhum Localidade com id na base de dados", status: 404);
                     break;
-                case 1:
+                case TypeEnum.IbgeCode:
                     locality = await _localityGetRepository.GetByIbgeCodeAsync(request.Filter, cancellationToken);
                     if (locality is null)
                         return new Response("Não há nenhum Localidade com esse código IBGE na base de dados", status: 404);
                     break;
-                case 2:
+                case TypeEnum.Name:
                     locality = await _localityGetRepository.GetByNameCodeAsync(request.Filter, cancellationToken);
                     if (locality is null)
                         return new Response("Não há nenhum Localidade com esse nome na base de dados", status: 404);
@@ -50,7 +50,7 @@ public class Handler : IRequestHandler<Request, Response>
 
         var responseData = new ResponseData(locality);
 
-        return new Response($"Localidade localizado com sucesso.", responseData);
+        return new Response($"Localidade {responseData.locality.Name} encontrada com sucesso.", responseData);
 
         #endregion
 

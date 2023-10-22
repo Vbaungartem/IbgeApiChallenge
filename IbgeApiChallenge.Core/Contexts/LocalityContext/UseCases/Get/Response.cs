@@ -1,5 +1,6 @@
 ﻿using Flunt.Notifications;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.ViewModels;
 
 namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
 
@@ -25,4 +26,4 @@ public class Response : SharedContext.UseCases.Response
     public ResponseData? ResponseData { get; }
 }
 
-public record ResponseData(Locality locality);
+public record ResponseData(LocalityStateVm locality);

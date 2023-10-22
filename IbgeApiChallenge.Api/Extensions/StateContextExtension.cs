@@ -1,15 +1,16 @@
-﻿using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create;
-using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Interfaces;
+﻿using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Interfaces;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Delete.Interfaces;
+using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Get;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Get.Interfaces;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll.Interfaces;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Create.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Delete.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Get.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.ListAll.Implementations;
-using IbgeApiChallenge.Infra.Data;
 using MediatR;
 using Handler = IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll.Handler;
+using Request = IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Request;
+using Response = IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Response;
 
 namespace IbgeApiChallenge.Api.Extensions;
 
@@ -62,7 +63,7 @@ public static class StateContextExtension
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = id;
-            request.Type = 0;
+            request.Type = TypeEnum.Id;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -80,7 +81,7 @@ public static class StateContextExtension
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = acronym;
-            request.Type = 1;
+            request.Type = TypeEnum.Acronym;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -98,7 +99,7 @@ public static class StateContextExtension
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = ibgeCode;
-            request.Type = 2;
+            request.Type = TypeEnum.IbgeCode;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -116,7 +117,7 @@ public static class StateContextExtension
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = name;
-            request.Type = 3;
+            request.Type = TypeEnum.Name;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);

@@ -1,6 +1,6 @@
-using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Delete.Interfaces;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAll.Interfaces;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Create.Implementations;
@@ -8,6 +8,8 @@ using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Delete.Implementa
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Get.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.ListAll.Implementations;
 using MediatR;
+using Request = IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Request;
+using Response = IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Response;
 
 namespace IbgeApiChallenge.Api.Extensions;
 
@@ -63,7 +65,7 @@ public static class LocalityContextExtension
             var request = new Core.Contexts.LocalityContext.UseCases.Get.Request();
             var handler = new Core.Contexts.LocalityContext.UseCases.Get.Handler(localityGetRepository);
             request.Filter = id;
-            request.Type = 0;
+            request.Type = TypeEnum.Id;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -81,7 +83,7 @@ public static class LocalityContextExtension
             var request = new Core.Contexts.LocalityContext.UseCases.Get.Request();
             var handler = new Core.Contexts.LocalityContext.UseCases.Get.Handler(localityGetRepository);
             request.Filter = ibgeCode;
-            request.Type = 1;
+            request.Type = TypeEnum.IbgeCode;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -99,7 +101,7 @@ public static class LocalityContextExtension
             var request = new Core.Contexts.LocalityContext.UseCases.Get.Request();
             var handler = new Core.Contexts.LocalityContext.UseCases.Get.Handler(localityGetRepository);
             request.Filter = name;
-            request.Type = 2;
+            request.Type = TypeEnum.Name;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);

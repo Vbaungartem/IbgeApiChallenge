@@ -1,5 +1,5 @@
-﻿using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
-using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll.Interfaces;
+﻿using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll.Interfaces;
+using IbgeApiChallenge.Core.Contexts.StateContext.VisualModels;
 using MediatR;
 
 namespace IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll;
@@ -15,7 +15,7 @@ public class Handler : IRequestHandler<Request, Response>
 
     public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
     {
-        List<State> states;
+        List<StateVm>? states;
         try
         {
             states = await _stateListAllRepository.ListAllAsync(cancellationToken);
@@ -29,7 +29,6 @@ public class Handler : IRequestHandler<Request, Response>
         }
 
         var responseData = new ResponseData(states);
-
         return new Response($"Total de estados: {responseData.States.Count}", responseData);
     }
 }

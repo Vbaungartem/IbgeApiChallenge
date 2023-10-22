@@ -5,5 +5,12 @@ namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
 public class Request : IRequest<Response>
 {
     public string Filter { get; set; } = String.Empty;
-    public int Type { get; set; } = 0;
+    public TypeEnum Type { get; set; }
+}
+
+public enum TypeEnum
+{
+    Id = 0,
+    IbgeCode = 1,
+    Name = 2
 }
