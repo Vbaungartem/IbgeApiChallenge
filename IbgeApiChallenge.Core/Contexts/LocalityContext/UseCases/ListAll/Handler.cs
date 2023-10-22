@@ -24,14 +24,14 @@ public class Handler : IRequestHandler<Request, Response>
                 localities = await _localityListAllRepository.ListAllAsync(cancellationToken);
 
                 if (localities is null || localities.Count() is 0)
-                    return new Response("Não há nenhuma lcoalidade cadastrado na base de dados", status: 404);
+                    return new Response("Não há nenhuma localidade cadastrado na base de dados", status: 404);
             }
             else
             {
                 localities = await _localityListAllRepository.ListAllAsync(request.Name, cancellationToken);
 
                 if (localities is null || localities.Count() is 0)
-                    return new Response($"Não há nenhuma localidade com esso nome {request.Name} ou parecido.", status: 404);
+                    return new Response($"Não há nenhuma localidade com esse nome {request.Name} ou parecido.", status: 404);
             }
 
         }

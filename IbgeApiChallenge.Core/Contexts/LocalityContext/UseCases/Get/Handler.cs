@@ -27,17 +27,17 @@ public class Handler : IRequestHandler<Request, Response>
                 case TypeEnum.Id:
                     locality = await _localityGetRepository.GetByIdAsync(request.Filter, cancellationToken);
                     if (locality is null)
-                        return new Response("Não há nenhum Localidade com id na base de dados", status: 404);
+                        return new Response($"Não há nenhum localidade com id {request.Filter} na base de dados", status: 404);
                     break;
                 case TypeEnum.IbgeCode:
                     locality = await _localityGetRepository.GetByIbgeCodeAsync(request.Filter, cancellationToken);
                     if (locality is null)
-                        return new Response("Não há nenhum Localidade com esse código IBGE na base de dados", status: 404);
+                        return new Response($"Não há nenhum localidade com esse código IBGE {request.Filter} na base de dados", status: 404);
                     break;
                 case TypeEnum.Name:
                     locality = await _localityGetRepository.GetByNameCodeAsync(request.Filter, cancellationToken);
                     if (locality is null)
-                        return new Response("Não há nenhum Localidade com esse nome na base de dados", status: 404);
+                        return new Response($"Não há nenhum localidade com esse nome {request.Filter} na base de dados", status: 404);
                     break;
                 default:
                     return new Response("Tipo de solitação não suportada.", status: 501);

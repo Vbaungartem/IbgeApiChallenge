@@ -3,10 +3,12 @@ using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Delete.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAll.Interfaces;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAllByState.Interfaces;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Create.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Delete.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Get.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.ListAll.Implementations;
+using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.ListAllByState.Implementations;
 using MediatR;
 using Request = IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Request;
 using Response = IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Response;
@@ -32,6 +34,12 @@ public static class LocalityContextExtension
         #region ListAll ********************************************
 
         builder.Services.AddTransient<ILocalityListAllRepository, LocalityListAllRepository>();
+
+        #endregion
+
+        #region ListAll by state ********************************************
+
+        builder.Services.AddTransient<ILocalityListAllByStateRepository, LocalityListAllByStateRepository>();
 
         #endregion
 
@@ -133,7 +141,7 @@ public static class LocalityContextExtension
 
         }).WithTags("Locality").RequireAuthorization();
 
-       app.MapGet("api/v1/locality/{name}/listAll", handler: async (string name, ILocalityListAllRepository localityListAllRepository)
+        app.MapGet("api/v1/locality/{name}/listAll", handler: async (string name, ILocalityListAllRepository localityListAllRepository)
             =>
         {
             var request = new Core.Contexts.LocalityContext.UseCases.ListAll.Request();
@@ -151,6 +159,87 @@ public static class LocalityContextExtension
             return Results.Json(result);
 
         }).WithTags("Locality").RequireAuthorization();
+
+        #endregion
+        
+        #region ListAll by state *****************************************
+
+        app.MapGet("api/v1/locality/{id}/listAllByIdState", handler: async (string id, ILocalityListAllByStateRepository localityListAllRepository)
+            =>
+        {
+            var request = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Request();
+            request.Filter = id;
+            request.Type = Core.Contexts.LocalityContext.UseCases.ListAllByState.TypeEnum.Id;
+            var handler = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Handler(localityListAllRepository);
+            var result = await handler.Handle(request, new CancellationToken());
+   
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).WithTags("Locality").RequireAuthorization();
+        
+        app.MapGet("api/v1/locality/{ibgeCode}/listAllByIbgeCode", handler: async (string ibgeCode, ILocalityListAllByStateRepository localityListAllRepository)
+            =>
+        {
+            var request = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Request();
+            request.Filter = ibgeCode;
+            request.Type = Core.Contexts.LocalityContext.UseCases.ListAllByState.TypeEnum.IbgeCode;
+            var handler = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Handler(localityListAllRepository);
+            var result = await handler.Handle(request, new CancellationToken());
+   
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).WithTags("Locality").RequireAuthorization();
+
+       app.MapGet("api/v1/locality/{acronym}/listAllByAcronymState", handler: async (string acronym, ILocalityListAllByStateRepository localityListAllRepository)
+            =>
+        {
+            var request = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Request();
+            request.Filter = acronym;
+            request.Type = Core.Contexts.LocalityContext.UseCases.ListAllByState.TypeEnum.Acronym;
+            var handler = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Handler(localityListAllRepository);
+            var result = await handler.Handle(request, new CancellationToken());
+   
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).WithTags("Locality").RequireAuthorization();
+        
+        app.MapGet("api/v1/locality/{name}/listAllByNameState", handler: async (string name, ILocalityListAllByStateRepository localityListAllRepository)
+            =>
+        {
+            var request = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Request();
+            request.Filter = name;
+            request.Type = Core.Contexts.LocalityContext.UseCases.ListAllByState.TypeEnum.Name;
+            var handler = new Core.Contexts.LocalityContext.UseCases.ListAllByState.Handler(localityListAllRepository);
+            var result = await handler.Handle(request, new CancellationToken());
+   
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).WithTags("Locality").RequireAuthorization();
+
 
         #endregion
 

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
+namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAllByState;
 
 public class Request : IRequest<Response>
 {
@@ -11,6 +11,7 @@ public class Request : IRequest<Response>
 public enum TypeEnum
 {
     Id = 0,
-    IbgeCode = 1,
-    Name = 2
+    Acronym = 1,
+    IbgeCode = 2,
+    Name = 3
 }
