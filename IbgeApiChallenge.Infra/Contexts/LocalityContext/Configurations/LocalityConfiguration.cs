@@ -21,7 +21,7 @@ public class LocalityConfiguration : IEntityTypeConfiguration<Locality>
             .HasMaxLength(2)
             .IsRequired();
 
-        builder.Property(state => state.IbgeCode)
+        builder.Property(locality => locality.IbgeCode)
             .HasColumnName("ibge_code")
             .HasColumnType("NVARCHAR")
             .HasMaxLength(50)

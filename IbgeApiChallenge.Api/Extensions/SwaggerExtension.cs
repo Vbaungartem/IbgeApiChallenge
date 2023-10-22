@@ -10,7 +10,7 @@ namespace IbgeApiChallenge.Api.Extensions
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "APISaudacao", Description = "Teste com Minimal APIs", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "IbgeApiChallenge.Api", Description = "Teste com Minimal APIs", Version = "v1" });
                 c.CustomSchemaIds(type => type.FullName);
 
                 // Adicionar a autenticação JWT

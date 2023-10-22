@@ -8,9 +8,9 @@ public class Locality : Entity
     public string IbgeCode { get; private set; } = string.Empty;
     public string Name { get; private set; } = string.Empty;
     public Guid StateId { get; private set; } = Guid.Empty;
-    public State State { get; private set; } = null!;
+    public virtual State State { get; private set; } = null!;
 
-    protected Locality(string ibgeCode)
+    protected Locality()
     {
     }
 

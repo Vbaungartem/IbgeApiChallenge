@@ -1,5 +1,6 @@
 ﻿using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAll.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.ViewModels;
 using MediatR;
 
 namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAll;
@@ -15,11 +16,10 @@ public class Handler : IRequestHandler<Request, Response>
 
     public async Task<Response> Handle(Request request, CancellationToken cancellationToken)
     {
-        List<Locality> localities;
+        List<LocalityVm> localities;
         try
         {
             localities = await _stateListAllRepository.ListAllAsync(cancellationToken);
-            
 
             if (localities is null || localities.Count() is 0)
                 return new Response("Não há nenhuma Localidade cadastrado na base de dados", status: 404);

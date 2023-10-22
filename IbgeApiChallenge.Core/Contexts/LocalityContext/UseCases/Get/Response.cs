@@ -1,8 +1,8 @@
 ﻿using Flunt.Notifications;
-using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
-using IbgeApiChallenge.Core.Contexts.StateContext.VisualModels;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.ViewModels;
 
-namespace IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Get;
+namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
 
 public class Response : SharedContext.UseCases.Response
 {
@@ -26,4 +26,4 @@ public class Response : SharedContext.UseCases.Response
     public ResponseData? ResponseData { get; }
 }
 
-public record ResponseData(StateVm State);
+public record ResponseData(LocalityStateVm locality);

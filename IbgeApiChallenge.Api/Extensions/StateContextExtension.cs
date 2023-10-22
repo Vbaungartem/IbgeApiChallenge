@@ -1,15 +1,16 @@
-﻿using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create;
-using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Interfaces;
+﻿using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Interfaces;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Delete.Interfaces;
+using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Get;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Get.Interfaces;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll.Interfaces;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Create.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Delete.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Get.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.ListAll.Implementations;
-using IbgeApiChallenge.Infra.Data;
 using MediatR;
 using Handler = IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll.Handler;
+using Request = IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Request;
+using Response = IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Response;
 
 namespace IbgeApiChallenge.Api.Extensions;
 
@@ -21,17 +22,17 @@ public static class StateContextExtension
 
         builder.Services.AddTransient<IStateCreateRepository, StateCreateRepository>();
 
-    #endregion
+        #endregion
 
         #region Get By Filter *****************************************
         builder.Services.AddTransient<IStateGetRepository, StateGetRepository>();
         #endregion
         #region ListAll ********************************************
 
-    builder.Services.AddTransient<IStateListAllRepository, StateListAllRepository>();
+        builder.Services.AddTransient<IStateListAllRepository, StateListAllRepository>();
 
         #endregion
-        
+
         #region Delete ********************************************
 
         builder.Services.AddTransient<IStateDeleteRepository, StateDeleteRepository>();
@@ -51,18 +52,18 @@ public static class StateContextExtension
             return result.IsSuccess
                 ? Results.Created($"api/v1/state/create/{result.ResponseData?.Id}", result)
                 : Results.Json(result, statusCode: result.Status);
-        }).RequireAuthorization();
+        }).WithTags("State").RequireAuthorization();
         #endregion
-        
+
         #region Get By Filter *****************************************
-        
-        app.MapGet("api/v1/state/{id}/id", handler: async (string id, IStateGetRepository stateGetRepository )
+
+        app.MapGet("api/v1/state/{id}/id", handler: async (string id, IStateGetRepository stateGetRepository)
             =>
         {
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = id;
-            request.Type = 0;
+            request.Type = TypeEnum.Id;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -72,15 +73,15 @@ public static class StateContextExtension
 
             return Results.Json(result);
 
-        }).RequireAuthorization();
+        }).WithTags("State").RequireAuthorization();
 
-        app.MapGet("api/v1/state/{acronym}/acronym", handler: async (string acronym, IStateGetRepository stateGetRepository )
+        app.MapGet("api/v1/state/{acronym}/acronym", handler: async (string acronym, IStateGetRepository stateGetRepository)
             =>
         {
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = acronym;
-            request.Type = 1;
+            request.Type = TypeEnum.Acronym;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -90,15 +91,15 @@ public static class StateContextExtension
 
             return Results.Json(result);
 
-        }).RequireAuthorization();
+        }).WithTags("State").RequireAuthorization();
 
-        app.MapGet("api/v1/state/{ibgeCode}/ibgeCode", handler: async (string ibgeCode, IStateGetRepository stateGetRepository )
+        app.MapGet("api/v1/state/{ibgeCode}/ibgeCode", handler: async (string ibgeCode, IStateGetRepository stateGetRepository)
             =>
         {
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = ibgeCode;
-            request.Type = 2;
+            request.Type = TypeEnum.IbgeCode;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -108,15 +109,15 @@ public static class StateContextExtension
 
             return Results.Json(result);
 
-        }).RequireAuthorization();
+        }).WithTags("State").RequireAuthorization();
 
-        app.MapGet("api/v1/state/{name}/name", handler: async (string name, IStateGetRepository stateGetRepository )
+        app.MapGet("api/v1/state/{name}/name", handler: async (string name, IStateGetRepository stateGetRepository)
             =>
         {
             var request = new Core.Contexts.StateContext.UseCases.Get.Request();
             var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
             request.Filter = name;
-            request.Type = 3;
+            request.Type = TypeEnum.Name;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
                 return Results.Json(result, statusCode: result.Status);
@@ -126,13 +127,13 @@ public static class StateContextExtension
 
             return Results.Json(result);
 
-        }).RequireAuthorization();
+        }).WithTags("State").RequireAuthorization();
         #endregion
-        
+
 
         #region ListAll *****************************************
-        
-        app.MapGet("api/v1/state/listAll", handler: async (IStateListAllRepository stateListAllRepository )
+
+        app.MapGet("api/v1/state/listAll", handler: async (IStateListAllRepository stateListAllRepository)
             =>
         {
             var request = new Core.Contexts.StateContext.UseCases.ListAll.Request();
@@ -147,12 +148,12 @@ public static class StateContextExtension
 
             return Results.Json(result);
 
-        }).RequireAuthorization();
+        }).WithTags("State").RequireAuthorization();
         #endregion
-        
+
         #region Delete *****************************************
-        
-        app.MapDelete("api/v1/state/{id}/delete", handler: async (string id, IStateDeleteRepository stateDeleteRepository )
+
+        app.MapDelete("api/v1/state/{id}/delete", handler: async (string id, IStateDeleteRepository stateDeleteRepository)
             =>
         {
             var request = new Core.Contexts.StateContext.UseCases.Delete.Request();
@@ -167,7 +168,7 @@ public static class StateContextExtension
 
             return Results.Json(result);
 
-        }).RequireAuthorization();
+        }).WithTags("State").RequireAuthorization();
         #endregion
     }
 }
