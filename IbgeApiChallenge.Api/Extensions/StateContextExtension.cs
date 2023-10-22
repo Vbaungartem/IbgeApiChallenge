@@ -1,9 +1,11 @@
 ﻿using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Create.Interfaces;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Delete.Interfaces;
+using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Get.Interfaces;
 using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.ListAll.Interfaces;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Create.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Delete.Implementations;
+using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Get.Implementations;
 using IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.ListAll.Implementations;
 using IbgeApiChallenge.Infra.Data;
 using MediatR;
@@ -19,11 +21,14 @@ public static class StateContextExtension
 
         builder.Services.AddTransient<IStateCreateRepository, StateCreateRepository>();
 
-        #endregion
+    #endregion
 
+        #region Get By Filter *****************************************
+        builder.Services.AddTransient<IStateGetRepository, StateGetRepository>();
+        #endregion
         #region ListAll ********************************************
 
-        builder.Services.AddTransient<IStateListAllRepository, StateListAllRepository>();
+    builder.Services.AddTransient<IStateListAllRepository, StateListAllRepository>();
 
         #endregion
         
@@ -49,6 +54,82 @@ public static class StateContextExtension
         }).RequireAuthorization();
         #endregion
         
+        #region Get By Filter *****************************************
+        
+        app.MapGet("api/v1/state/{id}/id", handler: async (string id, IStateGetRepository stateGetRepository )
+            =>
+        {
+            var request = new Core.Contexts.StateContext.UseCases.Get.Request();
+            var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
+            request.Filter = id;
+            request.Type = 0;
+            var result = await handler.Handle(request, new CancellationToken());
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).RequireAuthorization();
+
+        app.MapGet("api/v1/state/{acronym}/acronym", handler: async (string acronym, IStateGetRepository stateGetRepository )
+            =>
+        {
+            var request = new Core.Contexts.StateContext.UseCases.Get.Request();
+            var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
+            request.Filter = acronym;
+            request.Type = 1;
+            var result = await handler.Handle(request, new CancellationToken());
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).RequireAuthorization();
+
+        app.MapGet("api/v1/state/{ibgeCode}/ibgeCode", handler: async (string ibgeCode, IStateGetRepository stateGetRepository )
+            =>
+        {
+            var request = new Core.Contexts.StateContext.UseCases.Get.Request();
+            var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
+            request.Filter = ibgeCode;
+            request.Type = 2;
+            var result = await handler.Handle(request, new CancellationToken());
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).RequireAuthorization();
+
+        app.MapGet("api/v1/state/{name}/name", handler: async (string name, IStateGetRepository stateGetRepository )
+            =>
+        {
+            var request = new Core.Contexts.StateContext.UseCases.Get.Request();
+            var handler = new Core.Contexts.StateContext.UseCases.Get.Handler(stateGetRepository);
+            request.Filter = name;
+            request.Type = 3;
+            var result = await handler.Handle(request, new CancellationToken());
+            if (!result.IsSuccess)
+                return Results.Json(result, statusCode: result.Status);
+
+            if (result.ResponseData is null)
+                return Results.Json(result, statusCode: 500);
+
+            return Results.Json(result);
+
+        }).RequireAuthorization();
+        #endregion
+        
+
         #region ListAll *****************************************
         
         app.MapGet("api/v1/state/listAll", handler: async (IStateListAllRepository stateListAllRepository )
