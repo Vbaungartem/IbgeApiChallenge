@@ -1,7 +1,7 @@
 using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
-using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
+using IbgeApiChallenge.Core.Contexts.StateContext.Entities;
 
-namespace IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Interfaces;
+namespace IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Interfaces;
 
 public interface IStateRepository
 {

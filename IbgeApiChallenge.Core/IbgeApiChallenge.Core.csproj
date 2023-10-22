@@ -1,11 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Contexts\UserContext\UseCases\Create.cs" />
     <Compile Remove="Contexts\UserContext\UseCases\UpdatePassword.cs" />
@@ -13,24 +11,16 @@
     <Compile Remove="Contexts\StateContext\UseCases\ListAll\Interfaces\Request.cs" />
     <Compile Remove="Contexts\UserContext\UseCases\Interfaces\**" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Flunt" Version="2.0.5" />
     <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Contexts\StateContext\ValueObjects\" />
-  </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Remove="Contexts\StateContext\UseCases\Create\Request\**" />
     <EmbeddedResource Remove="Contexts\UserContext\UseCases\Interfaces\**" />
   </ItemGroup>
-
   <ItemGroup>
     <None Remove="Contexts\StateContext\UseCases\Create\Request\**" />
     <None Remove="Contexts\UserContext\UseCases\Interfaces\**" />
   </ItemGroup>
-
 </Project>

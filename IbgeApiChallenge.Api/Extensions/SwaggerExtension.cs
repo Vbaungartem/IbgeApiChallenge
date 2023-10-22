@@ -1,24 +1,55 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 
-namespace IbgeApiChallenge.Api.Extensions;
-
-public static class SwaggerExtension
+namespace IbgeApiChallenge.Api.Extensions
 {
-    public static void AddSwagger(this WebApplicationBuilder builder)
+    public static class SwaggerExtension
     {
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(c =>
+        public static void AddSwagger(this WebApplicationBuilder builder)
         {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "APISaudacao", Description = "Teste com Minimal APIs", Version = "v1" });
-            c.CustomSchemaIds(type => type.FullName);
-        });
-    }
-    public static void AddSwaggerEndpoints(this WebApplication app)
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI(c =>
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "APISaudacao", Description = "Teste com Minimal APIs", Version = "v1" });
+                c.CustomSchemaIds(type => type.FullName);
+
+                // Adicionar a autenticação JWT
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Por favor, insira o token JWT com 'Bearer ' na frente. Exemplo: Bearer {token}",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
+                });
+            });
+        }
+
+        public static void AddSwaggerEndpoints(this WebApplication app)
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Início v1");
-        });
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Início v1");
+
+                // Habilitar o botão de autorização para usar o token
+                c.OAuthUsePkce();
+            });
+        }
     }
 }

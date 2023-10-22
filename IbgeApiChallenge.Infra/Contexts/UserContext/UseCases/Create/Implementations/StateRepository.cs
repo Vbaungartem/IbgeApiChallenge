@@ -1,10 +1,10 @@
 using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
-using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
-using IbgeApiChallenge.Core.Contexts.UserContext.UseCases.Interfaces;
+using IbgeApiChallenge.Core.Contexts.StateContext.Entities;
+using IbgeApiChallenge.Core.Contexts.StateContext.UseCases.Interfaces;
 using IbgeApiChallenge.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace IbgeApiChallenge.Infra.Contexts.UserContext.UseCases.Create.Implementations;
+namespace IbgeApiChallenge.Infra.Contexts.StateContext.UseCases.Create.Implementations;
 
 public class StateRepository : IStateRepository
 {
