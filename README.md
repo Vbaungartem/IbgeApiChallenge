@@ -39,6 +39,38 @@ Todos os projetos devem entregar as seguintes funcionalidades:
 - **Arquitetura**: Usando Minimal APIs
 - **Objetivo**: Entregar uma API 100% funcional!
 
+## Checklist de Metas Realizadas
+
+### User
+- [x] CRUD
+    - [x] Create
+    - [x] Update
+- [x] Cadastro de E-mail e Senha
+- [x] Login (Token, JWT)
+- [x] Atualização de senha
+- [x] Autenticação e Autorização
+
+### Locality
+- [x] CRUD
+    - [x] Create
+    - [x] Read
+    - [x] Update
+    - [x] Delete
+- [x] Pesquisar por nome do local
+- [x] Pesquisar por nome do estado. 
+- [x] Pesquisa por código (IBGE)
+- [x] Autenticação e Autorização
+
+### State
+- [x] CRUD
+    - [x] Create
+    - [x] Read
+    - [x] Update
+    - [x] Delete
+- [x] Pesquisar por nome do estado
+- [x] Pesquisa por código (IBGE)
+- [x] Autenticação e Autorização
+
 ## Esquema de Banco de Dados
 
 ### Tabelas
