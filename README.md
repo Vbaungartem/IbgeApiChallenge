@@ -1,8 +1,10 @@
+<img width="100%" src="https://github.com/AlessandroCarvalhoSantos/AlessandroCarvalhoSantos/blob/main/04%20-%20Outros/assets/img/readme/ArtBaltaDesafio.png">
+
 # IbgeApiChallenge
 
 ## Descrição
 
-Este projeto é um desafio API que foca na implementação de diversas funcionalidades essenciais para aplicações modernas, desde autenticação até operações CRUD relacionadas à localidades.
+Este desafio está focado na construção de uma API que forneça informações sobre cidades e estados do Brasil. Os aspirantes podem se basear no [repositório GitHub do balta](https://github.com/andrebaltieri/ibge), que contém dados relevantes, embora a estrutura do banco de dados possa ser diferente. O objetivo é desenvolver uma API funcional
 
 ---
 
@@ -16,20 +18,9 @@ Este projeto é um desafio API que foca na implementação de diversas funcional
 
 ## Links 
 
-<details style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-    <summary style="cursor: pointer;">Visualizar API</summary>
-    <iframe src="http://ec2-35-173-11-131.compute-1.amazonaws.com/swagger/index.html" style="width: 100%; height: 300px; border: none;"></iframe>
-</details>
+[**Acessar Swagger**](http://ec2-35-173-11-131.compute-1.amazonaws.com/swagger/index.html)
 
-
-
-## Detalhes Técnicos
-
-- **Framework**: .NET 8 (Versão: 8.0.100-rc.2.23502.2)
-- **Arquitetura**: Usando Minimal APIs
-- **Banco de dados**: SQL Server!
-- **Server**: Amazon EC2 (AMD4, 16gb ram, r5dn.large)
-
+[**Link API**](http://ec2-35-173-11-131.compute-1.amazonaws.com)
 ---
 ## Requisitos
 
@@ -57,12 +48,6 @@ Todos os projetos devem entregar as seguintes funcionalidades:
 - Júnior
 
 ---
-
-## Detalhes Técnicos
-
-- **Framework**: .NET 8 (Versão: 8.0.100-rc.2.23502.2)
-- **Arquitetura**: Usando Minimal APIs
-- **Objetivo**: Entregar uma API 100% funcional!
 
 ## Checklist de Metas Realizadas
 
