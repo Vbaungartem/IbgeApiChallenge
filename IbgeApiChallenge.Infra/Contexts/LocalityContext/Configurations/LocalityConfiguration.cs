@@ -20,12 +20,19 @@ public class LocalityConfiguration : IEntityTypeConfiguration<Locality>
             .HasColumnType("uniqueidentifier ")
             .HasMaxLength(2)
             .IsRequired();
-
-        builder.Property(locality => locality.IbgeCode)
+        
+        builder.Property(state => state.IbgeCode)
             .HasColumnName("ibge_code")
             .HasColumnType("NVARCHAR")
-            .HasMaxLength(50)
+            .HasMaxLength(7)
             .IsRequired();
+        
+        // builder.OwnsOne(locality => locality.IbgeCode)
+        //     .Property(ibgeCode => ibgeCode.Code)
+        //     .HasColumnName("ibge_code")
+        //     .HasColumnType("NVARCHAR")
+        //     .HasMaxLength(7)
+        //     .IsRequired();
 
         builder.Property(locality => locality.Name)
             .HasColumnName("name")
@@ -38,5 +45,4 @@ public class LocalityConfiguration : IEntityTypeConfiguration<Locality>
             .HasForeignKey(locality => locality.StateId)
             .HasPrincipalKey(state => state.Id);
     }
-
 }

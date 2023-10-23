@@ -1,4 +1,3 @@
-using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAll.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.ViewModels;
 using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;

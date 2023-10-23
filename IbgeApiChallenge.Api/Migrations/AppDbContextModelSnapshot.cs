@@ -22,38 +22,7 @@ namespace IbgeApiChallenge.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("IbgeApiChallenge.Core.Contexts.StateContext.Entitties.State", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Acronym")
-                        .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("NVARCHAR")
-                        .HasColumnName("acronym");
-
-                    b.Property<string>("IbgeCode")
-                        .IsRequired()
-                        .HasMaxLength(2)
-                        .HasColumnType("NVARCHAR")
-                        .HasColumnName("ibge_code");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("NVARCHAR")
-                        .HasColumnName("name");
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("IbgeCode");
-
-                    b.ToTable("states", (string)null);
-                });
-
-            modelBuilder.Entity("IbgeApiChallenge.Core.Contexts.UserContext.Entities.Locality", b =>
+            modelBuilder.Entity("IbgeApiChallenge.Core.Contexts.LocalityContext.Entitties.Locality", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +30,7 @@ namespace IbgeApiChallenge.Api.Migrations
 
                     b.Property<string>("IbgeCode")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(7)
                         .HasColumnType("NVARCHAR")
                         .HasColumnName("ibge_code");
 
@@ -81,6 +50,35 @@ namespace IbgeApiChallenge.Api.Migrations
                     b.HasIndex("StateId");
 
                     b.ToTable("localities", (string)null);
+                });
+
+            modelBuilder.Entity("IbgeApiChallenge.Core.Contexts.StateContext.Entitties.State", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Acronym")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("VARCHAR")
+                        .HasColumnName("acronym");
+
+                    b.Property<string>("IbgeCode")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("ibge_code");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("NVARCHAR")
+                        .HasColumnName("name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("states", (string)null);
                 });
 
             modelBuilder.Entity("IbgeApiChallenge.Core.Contexts.UserContext.Entities.Role", b =>
@@ -138,7 +136,7 @@ namespace IbgeApiChallenge.Api.Migrations
                     b.ToTable("auth_users_x_roles");
                 });
 
-            modelBuilder.Entity("IbgeApiChallenge.Core.Contexts.UserContext.Entities.Locality", b =>
+            modelBuilder.Entity("IbgeApiChallenge.Core.Contexts.LocalityContext.Entitties.Locality", b =>
                 {
                     b.HasOne("IbgeApiChallenge.Core.Contexts.StateContext.Entitties.State", "State")
                         .WithMany("LocalityList")

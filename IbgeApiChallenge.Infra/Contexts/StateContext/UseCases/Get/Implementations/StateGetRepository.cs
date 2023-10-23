@@ -23,7 +23,7 @@ public class StateGetRepository : IStateGetRepository
 
     public async Task<StateVm?> GetByAcronymAsync(string acronym, CancellationToken cancellationToken)
     {
-        return await GetByPredicate(state => state.Acronym== acronym, cancellationToken);
+        return await GetByPredicate(state => state.Acronym == acronym, cancellationToken);
     }
 
     public async Task<StateVm?> GetByIbgeCodeAsync(string ibgeCode, CancellationToken cancellationToken)

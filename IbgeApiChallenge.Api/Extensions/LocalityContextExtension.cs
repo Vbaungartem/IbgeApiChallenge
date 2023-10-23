@@ -4,11 +4,17 @@ using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAll.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.ListAllByState.Interfaces;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.UpdateIbgeCode.Interfaces;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.UpdateName.Interfaces;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.UpdateState.Interfaces;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Create.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Delete.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.Get.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.ListAll.Implementations;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.ListAllByState.Implementations;
+using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.UpdateIbgeCode.Implementations;
+using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.UpdateName.Implementations;
+using IbgeApiChallenge.Infra.Contexts.LocalityContext.UseCases.UpdateStateId.Implementations;
 using MediatR;
 using Request = IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Request;
 using Response = IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Response;
@@ -19,19 +25,17 @@ public static class LocalityContextExtension
 {
     public static void AddLocalityContext(this WebApplicationBuilder builder)
     {
-        #region Create **************************************************
+        #region Create ************************************************
 
         builder.Services.AddTransient<ILocalityCreateRepository, LocalityCreateRepository>();
 
         #endregion
-
         #region Get By Filter *****************************************
 
         builder.Services.AddTransient<ILocalityGetRepository, LocalityGetRepository>();
 
         #endregion
-
-        #region ListAll ********************************************
+        #region ListAll ***********************************************
 
         builder.Services.AddTransient<ILocalityListAllRepository, LocalityListAllRepository>();
 
@@ -48,6 +52,23 @@ public static class LocalityContextExtension
         builder.Services.AddTransient<ILocalityDeleteRepository, LocalityDeleteRepository>();
 
         #endregion
+        #region Update Name *******************************************
+
+        builder.Services.AddTransient<ILocalityUpdateNameRepository, LocalityUpdateNameRepository>();
+
+        #endregion
+        #region Update IbgeCode ***************************************
+
+        builder.Services.AddTransient<ILocalityUpdateIbgeCodeRepository, LocalityUpdateIbgeCodeRepository>();
+
+        #endregion
+        #region Update State ******************************************
+
+        builder.Services.AddTransient<ILocalityUpdateStateRepository, LocalityUpdateStateRepository>();
+
+        #endregion
+        
+        
     }
 
     public static void AddLocalityEndpoints(this WebApplication app)
@@ -64,8 +85,7 @@ public static class LocalityContextExtension
                 : Results.Json(result, statusCode: result.Status);
         }).WithTags("Locality").RequireAuthorization();
         #endregion
-
-        #region Get By Filter *****************************************
+        #region Get By Filter **********************************
 
         app.MapGet("api/v1/locality/{id}/id", handler: async (string id, ILocalityGetRepository localityGetRepository)
             =>
@@ -242,14 +262,13 @@ public static class LocalityContextExtension
 
 
         #endregion
-
         #region Delete *****************************************
 
-        app.MapDelete("api/v1/locality/{id}/delete", handler: async (string id, ILocalityDeleteRepository LocalityDeleteRepository)
+        app.MapDelete("api/v1/locality/{id}/delete", handler: async (string id, ILocalityDeleteRepository localityDeleteRepository)
             =>
         {
             var request = new Core.Contexts.LocalityContext.UseCases.Delete.Request();
-            var handler = new Core.Contexts.LocalityContext.UseCases.Delete.Handler(LocalityDeleteRepository);
+            var handler = new Core.Contexts.LocalityContext.UseCases.Delete.Handler(localityDeleteRepository);
             request.Id = id;
             var result = await handler.Handle(request, new CancellationToken());
             if (!result.IsSuccess)
@@ -262,6 +281,51 @@ public static class LocalityContextExtension
 
         }).WithTags("Locality").RequireAuthorization();
 
+        #endregion
+        #region Update Name ************************************
+        app.MapPut("api/v1/locality/{id}/update/name", handler: async ( string id,
+            Core.Contexts.LocalityContext.UseCases.UpdateName.Request request,
+            IRequestHandler<
+                Core.Contexts.LocalityContext.UseCases.UpdateName.Request, 
+                Core.Contexts.LocalityContext.UseCases.UpdateName.Response> handler) =>
+        {
+            request.Id = id;
+            var result = await handler.Handle(request, new CancellationToken());
+
+            return result.IsSuccess
+                ? Results.Ok(result)
+                : Results.Json(result, statusCode: result.Status);
+        }).WithTags("Locality").RequireAuthorization();
+        #endregion
+        #region Update IbgeCode ********************************
+        app.MapPut("api/v1/locality/{id}/update/ibgeCode", handler: async ( string id,
+            Core.Contexts.LocalityContext.UseCases.UpdateIbgeCode.Request request,
+            IRequestHandler<
+                Core.Contexts.LocalityContext.UseCases.UpdateIbgeCode.Request, 
+                Core.Contexts.LocalityContext.UseCases.UpdateIbgeCode.Response> handler) =>
+        {
+            request.Id = id;
+            var result = await handler.Handle(request, new CancellationToken());
+
+            return result.IsSuccess
+                ? Results.Ok(result)
+                : Results.Json(result, statusCode: result.Status);
+        }).WithTags("Locality").RequireAuthorization();
+        #endregion
+        #region Update State ***********************************
+        app.MapPut("api/v1/locality/{id}/update/state", handler: async ( string id,
+            Core.Contexts.LocalityContext.UseCases.UpdateState.Request request,
+            IRequestHandler<
+                Core.Contexts.LocalityContext.UseCases.UpdateState.Request, 
+                Core.Contexts.LocalityContext.UseCases.UpdateState.Response> handler) =>
+        {
+            request.Id = id;
+            var result = await handler.Handle(request, new CancellationToken());
+
+            return result.IsSuccess
+                ? Results.Ok(result)
+                : Results.Json(result, statusCode: result.Status);
+        }).WithTags("Locality").RequireAuthorization();
         #endregion
     }
 }
