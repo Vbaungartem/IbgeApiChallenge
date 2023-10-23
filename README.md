@@ -6,6 +6,31 @@ Este projeto é um desafio API que foca na implementação de diversas funcional
 
 ---
 
+## Detalhes Técnicos
+
+- **Framework**: .NET 8 (Versão: 8.0.100-rc.2.23502.2)
+- **Arquitetura**: Usando Minimal APIs
+- **Banco de dados**: SQL Server!
+- **Server**: Amazon EC2 (AMD4, 16gb ram, r5dn.large)
+---
+
+## Links 
+
+<details style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+    <summary style="cursor: pointer;">Visualizar API</summary>
+    <iframe src="http://ec2-35-173-11-131.compute-1.amazonaws.com/swagger/index.html" style="width: 100%; height: 300px; border: none;"></iframe>
+</details>
+
+
+
+## Detalhes Técnicos
+
+- **Framework**: .NET 8 (Versão: 8.0.100-rc.2.23502.2)
+- **Arquitetura**: Usando Minimal APIs
+- **Banco de dados**: SQL Server!
+- **Server**: Amazon EC2 (AMD4, 16gb ram, r5dn.large)
+
+---
 ## Requisitos
 
 Todos os projetos devem entregar as seguintes funcionalidades:
