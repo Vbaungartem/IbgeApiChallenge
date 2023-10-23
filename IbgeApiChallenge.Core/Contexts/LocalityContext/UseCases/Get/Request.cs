@@ -4,7 +4,7 @@ namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;
 
 public class Request : IRequest<Response>
 {
-    public string Filter { get; set; } = String.Empty;
+    public string Filter { get; set; } = string.Empty;
     public TypeEnum Type { get; set; }
 }
 

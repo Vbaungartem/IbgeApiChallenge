@@ -18,10 +18,20 @@ public class Handler : IRequestHandler<Request, Response>
         List<StateVm>? states;
         try
         {
-            states = await _stateListAllRepository.ListAllAsync(cancellationToken);
+            if(string.IsNullOrEmpty( request.Name))
+            {
+              states = await _stateListAllRepository.ListAllAsync(cancellationToken);
 
-            if (states is null || states.Count() is 0)
-                return new Response("Não há nenhum Estado cadastrado na base de dados", status: 404);
+              if (states is null || states.Count() is 0)
+                  return new Response("Não há nenhum Estado cadastrado na base de dados", status: 404);
+            }
+            else
+            {
+              states = await _stateListAllRepository.ListAllAsync(request.Name, cancellationToken);
+
+              if (states is null || states.Count() is 0)
+                  return new Response($"Não há nenhum Estado com esso nome {request.Name} ou parecido.", status: 404);
+            }
         }
         catch (Exception e)
         {

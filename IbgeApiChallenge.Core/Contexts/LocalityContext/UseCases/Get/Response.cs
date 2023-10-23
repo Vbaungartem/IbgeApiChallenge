@@ -1,5 +1,4 @@
 ﻿using Flunt.Notifications;
-using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.ViewModels;
 
 namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Get;

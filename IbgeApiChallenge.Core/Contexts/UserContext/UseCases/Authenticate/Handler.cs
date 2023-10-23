@@ -32,9 +32,9 @@ public class Handler : IRequestHandler<Request, Response>
             if (user is null)
                 return new Response("Usuário não encontrado.", status: 404);
         }
-        catch
+        catch(Exception e)
         {
-            return new Response("Não foi possível encontrar Usuário.", status: 500);
+            return new Response($"Não foi possível encontrar Usuário.\n {e.Message}", status: 500);
         }
         #endregion
 

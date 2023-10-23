@@ -1,5 +1,5 @@
-using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Interfaces;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Interfaces;
 using IbgeApiChallenge.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 
