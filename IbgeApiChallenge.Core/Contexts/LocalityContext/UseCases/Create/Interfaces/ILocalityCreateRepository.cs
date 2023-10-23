@@ -1,5 +1,5 @@
 
-using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.Entitties;
 
 namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Interfaces;
 

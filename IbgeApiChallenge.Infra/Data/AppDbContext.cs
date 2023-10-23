@@ -1,4 +1,4 @@
-﻿using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+﻿using IbgeApiChallenge.Core.Contexts.LocalityContext.Entitties;
 using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
 using IbgeApiChallenge.Core.Contexts.UserContext.Entities;
 using IbgeApiChallenge.Infra.Contexts.LocalityContext.Configurations;
@@ -25,5 +25,12 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfiguration(new RoleConfiguration());
         modelBuilder.ApplyConfiguration(new StateConfiguration());
         modelBuilder.ApplyConfiguration(new LocalityConfiguration());
+        
+        // modelBuilder.Entity<Core.Contexts.LocalityContext.ValueObjects.IbgeCode>()
+        //     .Ignore(ibge => ibge.Notifications);
+        // modelBuilder.Entity<Core.Contexts.StateContext.ValueObjects.IbgeCode>()
+        //     .Ignore(ibge => ibge.Notifications);
+        // modelBuilder.Entity<Core.Contexts.StateContext.ValueObjects.Acronym>()
+        //     .Ignore(ibge => ibge.Notifications);
     }
 }

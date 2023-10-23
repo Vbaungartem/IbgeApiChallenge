@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="..\IbgeApiChallenge.Core\IbgeApiChallenge.Core.csproj" />
   </ItemGroup>
@@ -11,6 +11,13 @@
   <ItemGroup>
     <Compile Remove="Contexts\StateContext\UseCases\Create\Implementations.cs" />
     <Compile Remove="Contexts\UserContext\UseCases\Create\Implementations\StateRepository.cs" />
+    <Compile Remove="Contexts\LocalityContext\UseCases\Implementations\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Contexts\LocalityContext\UseCases\Implementations\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Contexts\LocalityContext\UseCases\Implementations\**" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>

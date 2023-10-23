@@ -1,6 +1,9 @@
-﻿namespace IbgeApiChallenge.Core.Contexts.SharedContext.ValueObjects;
+﻿using Flunt.Notifications;
+using Flunt.Validations;
 
-public abstract class ValueObject
+namespace IbgeApiChallenge.Core.Contexts.SharedContext.ValueObjects;
+
+public abstract class ValueObject : Contract<Notification>
 {
     
 }

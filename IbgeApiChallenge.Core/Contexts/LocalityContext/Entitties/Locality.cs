@@ -1,15 +1,41 @@
+using IbgeApiChallenge.Core.Contexts.LocalityContext.ValueObjects;
 using IbgeApiChallenge.Core.Contexts.SharedContext.Entities;
 using IbgeApiChallenge.Core.Contexts.StateContext.Entitties;
 
-namespace IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+namespace IbgeApiChallenge.Core.Contexts.LocalityContext.Entitties;
 
 public class Locality : Entity
 {
-    public string IbgeCode { get; private set; } = string.Empty;
+    public string IbgeCode { get; private set; }
     public string Name { get; private set; } = string.Empty;
     public Guid StateId { get; private set; } = Guid.Empty;
     public virtual State State { get; private set; } = null!;
 
+
+    public void UpdateName(string name)
+    {
+        Name = name;
+    }
+    public void UpdateIbgeCode(string ibgeCode)
+    {
+        
+        IbgeCode = ibgeCode;
+    }
+
+    public void UpdateStateId(Guid stateId)
+    {
+        StateId = stateId;
+    }
+
+    public void UpdateIbgeCodeWithoutSufixChanges(string ibgeCode)
+    {
+        var prefixCode = IbgeCode.Substring(0, 2);
+        var code = ibgeCode.Substring(2, 5);
+        var newCode = prefixCode + code;
+        
+        IbgeCode = newCode;
+    }
+    
     protected Locality()
     {
     }

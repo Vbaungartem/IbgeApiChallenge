@@ -1,5 +1,6 @@
+using IbgeApiChallenge.Core.Contexts.LocalityContext.Entitties;
 using IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create.Interfaces;
-using IbgeApiChallenge.Core.Contexts.LocalityContext.Entities;
+using IbgeApiChallenge.Core.Contexts.LocalityContext.ValueObjects;
 using MediatR;
 
 namespace IbgeApiChallenge.Core.Contexts.LocalityContext.UseCases.Create;
@@ -25,11 +26,18 @@ public class Handler : IRequestHandler<Request, Response>
 
         #region 02. Generate Objects and Check Duality ************************************************
 
+        IbgeCode ibgeCode;
         Locality locality;
 
         try
         {
-            locality = new Locality(request.IbgeCode, request.Name, request.StateId);
+            ibgeCode = new IbgeCode(request.IbgeCode);
+
+            if (!ibgeCode.IsValid)
+                return new Response("O código do IBGE da localidade é inválido.", status: 400, ibgeCode.Notifications);
+            
+            locality = new Locality(ibgeCode.Code, request.Name, request.StateId);
+            
             var exists = await _localityCreateRepository.AnyAsync(request.IbgeCode, cancellationToken);
 
 

@@ -10,6 +10,7 @@
     <Compile Remove="Contexts\StateContext\UseCases\Create\Request\**" />
     <Compile Remove="Contexts\StateContext\UseCases\ListAll\Interfaces\Request.cs" />
     <Compile Remove="Contexts\UserContext\UseCases\Interfaces\**" />
+    <Compile Remove="Contexts\LocalityContext\UseCases\UpdateIbgeCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Flunt" Version="2.0.5" />
